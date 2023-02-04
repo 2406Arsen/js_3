@@ -1,6 +1,62 @@
-//1 bit 
-//1byte = 8bit
-//1kb = 1024 byte
-//1mb = 1024 kb
-//1gb = 1024 mb
-//1tb = 1024 gb
+//async, await
+
+const btn = document.getElementById('btn')
+
+
+
+
+// btn.addEventListener('click', () => {
+//     console.log('requested.....');
+//     setTimeout(() => {
+//         const applyForVisa = new Promise((resolve, reject) => {
+//             if (Math.random() * 10 > 5) {
+//                 resolve('resolved')
+//             } else {
+//                 reject('rejected')
+//             }
+//         })
+//         applyForVisa
+//             .then((res) => console.log(
+//                 res, ' you can buy tickets !!'
+//             ))
+//             .catch(err => console.error(err, ' oops :)'))
+//     }, 2000)
+
+// })
+
+
+const applyForVisa2 = async () => {
+    try {
+        const res = await foo()
+
+        console.log(res);
+        const res2 = await goo(res)
+        console.log(res2);
+        return res2
+
+    } catch (error) {
+        console.log(error, 'error');
+    }
+}
+
+async function foo() {
+
+    return 'fooRes'
+}
+async function goo(fooRes) {
+    throw new Error('error from function goo')
+    return `${fooRes + ' gooRes'}`
+}
+
+// class Apple {
+//     constructor() {
+
+//     }
+
+//     async hi() {
+
+//     }
+// }
+
+btn.addEventListener('click', applyForVisa2)
+
