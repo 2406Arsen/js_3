@@ -57,9 +57,30 @@ const arr = [obj2]
 
 const map2 = new WeakMap([[obj2, 'hello']])
 obj2 = null
-console.log(map2);
+// console.log(map2);
 
 
 //homework
 
-'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aperiam tempore delectus quibusdam magnam, soluta cum obcaecati aspernatur maxime cumque excepturi deleniti ducimus corporis eius consectetur nostrum incidunt nihil. Harum!'
+const section = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos iste minus magnam laudantium, iusto dolorum perferendis, quisquam doloribus non mollitia asperiores officiis id voluptas incidunt nihil corrupti similique expedita maxime!";
+
+const letterCount = new Map();
+
+// for (let i = 0; i < section.length; i++) {
+//     const letter = section[i].toLowerCase();
+//     if (/[a-z]/.test(letter)) {
+//         letterCount.set(letter, (letterCount.get(letter) || 0) + 1);
+//     }
+// }
+
+for (let i = 0; i < section.length; i++) {
+    const letter = section[i].toLowerCase();
+    if (letterCount.has(letter)) {
+        letterCount.set(letter, letterCount.get(letter) + 1);
+    } else {
+        letterCount.set(letter, 1);
+
+    }
+}
+
+console.log(letterCount);
